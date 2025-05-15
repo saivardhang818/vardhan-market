@@ -1,0 +1,154 @@
+/* General Container */
+.cart-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #f3f1f0;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titles */
+.cart-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Cart List */
+.cart-list {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.cart-header,
+.cart-item {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(80px, 1fr));
+  gap: 10px;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  text-align: center;
+}
+
+.cart-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.quantity-box button {
+  background-color: #4f7893;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 4px;
+}
+
+.item-actions .btn-remove {
+  background-color: #c69055;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Summary Section */
+.summary-section {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.discount-buttons button,
+.coupon-section button,
+.confirm-payment-btn,
+.payment-method button {
+  background-color: #54a6b7;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.coupon-section input,
+.email-section input,
+.card-section input {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+/* Payment Sections */
+.qr-section,
+.card-section {
+  margin-top: 1rem;
+}
+
+.qr-section p {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.thank-you-message {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Empty Cart */
+.empty-cart {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .cart-header {
+    display: none;
+  }
+
+  .cart-item {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+
+  .cart-img {
+    width: 100%;
+    max-width: 100px;
+    margin: 0 auto;
+  }
+
+  .quantity-box,
+  .item-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .summary-section {
+    padding: 1rem 0.5rem;
+  }
+}

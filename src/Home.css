@@ -1,0 +1,249 @@
+/* Root Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f1f0;
+  color: #333;
+}
+
+/* Container */
+.home-page {
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Hero Section */
+.hero-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #a5b899;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #04111a;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.hero-button {
+  background-color: #c26010;
+  color: white;
+  padding: 0.3rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.hero-banner img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Categories */
+.featured-categories {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.category-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-item {
+  background-color: #c69055;
+  padding: 1rem;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  width: 150px;
+}
+
+.category-item img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.category-item:hover {
+  transform: scale(1.05);
+}
+
+/* Scrolling Products */
+.scrolling-products {
+  margin-bottom: 2rem;
+}
+
+.product-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.product-card {
+  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Info Features */
+.info-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.info-block {
+  flex: 1;
+  min-width: 220px;
+  background-color: #a5b899;
+  color: #160707;
+  padding: 1rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+/* Testimonials */
+.customer-reviews {
+  background-color: #4f7893;
+  color: white;
+  padding: 2rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+blockquote {
+  background: white;
+  color: #333;
+  padding: 1rem;
+  border-left: 5px solid #c69055;
+  border-radius: 10px;
+  max-width: 300px;
+  font-style: italic;
+}
+
+/* Newsletter Signup */
+.newsletter-signup {
+  background-color: #54a6b7;
+  color: rgb(13, 12, 12);
+  padding: 2rem 1rem;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signup-form input {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  width: 90%;
+  max-width: 400px;
+}
+
+.signup-form button {
+  background-color: #f3f1f0;
+  color: #333;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #a5b899;
+  color: rgb(24, 22, 22);
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-banner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .info-features {
+    flex-direction: column;
+  }
+
+  .product-scroll {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .reviews {
+    flex-direction: column;
+  }
+
+  .category-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,75 @@
+/* Navbar container */
+.navbar {
+  background: linear-gradient(to right, #333, #444);  /* Add gradient background */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo container styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;  /* Add this line to create space between the logo and the nav items */
+}
+
+.logo-icon {
+  color: white;
+  font-size: 30px;  /* Size of the logo icon */
+  margin-right: 10px;
+}
+
+.logo-name {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  margin-right: auto;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+/* Command Icons container */
+.command-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icon {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #f39c12;
+}
+
+/* Add margin to the body so the content doesn't overlap the navbar */
+body {
+  margin-top: 60px;  /* Adjust based on navbar height */
+}
