@@ -29,7 +29,7 @@ function Home() {
           <p>Get the best veggies, dairy, meat, and chocolates delivered to your doorstep.</p>
           <Link to="/Veg" className="hero-button">Shop Now</Link>
         </div>
-        <img src="public/vegimages/srcccccc.jpg" alt="Hero Banner" />
+        <img src="/vegimages/tom.jpeg" alt="Hero Banner" />
       </section>
 
       {/* Featured Categories */}
