@@ -29,7 +29,7 @@ function Home() {
           <p>Get the best veggies, dairy, meat, and chocolates delivered to your doorstep.</p>
           <Link to="/Veg" className="hero-button">Shop Now</Link>
         </div>
-        <img src="public/main111.jpg" alt="Hero Banner" />
+        <img src="public/vegimages/srcccccc.jpg" alt="Hero Banner" />
       </section>
 
       {/* Featured Categories */}
@@ -37,19 +37,19 @@ function Home() {
         <h2>Shop by Category</h2>
         <div className="category-cards">
           <Link to="/Veg" className="category-item">
-            <img src="public/vegimages/download1.jpeg" alt="Veg" />
+            <img src="public/vegimages/bott.jpeg" alt="Veg" />
             <span>Vegetables</span>
           </Link>
           <Link to="/NonVeg" className="category-item">
-            <img src="public/nonVegimages/images1.jpeg" alt="Non-Veg" />
+            <img src="public/nonVegimages/chicken pakodi.jpg" alt="Non-Veg" />
             <span>Non-Veg</span>
           </Link>
           <Link to="/Milk" className="category-item">
-            <img src="public/milk/download2.jpeg" alt="Milk" />
+            <img src="public/milk/curd.jpg" alt="Milk" />
             <span>Milk</span>
           </Link>
           <Link to="/Chocolate" className="category-item">
-            <img src="public/chocolate/chocolateeeeee1.jpeg" alt="Chocolate" />
+            <img src="public/chocolate/dairymilk.jpg" alt="Chocolate" />
             <span>Chocolates</span>
           </Link>
         </div>
