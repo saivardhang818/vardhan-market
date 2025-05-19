@@ -49,7 +49,7 @@ function Home() {
             <span>Milk</span>
           </Link>
           <Link to="/Chocolate" className="category-item">
-            <img src="public/chocolate/chocolateeeeee1.jpeg" alt="Chocolate" />
+            <img src="/chocolate/chocolateeeeee1.jpeg" alt="Chocolate" />
             <span>Chocolates</span>
           </Link>
         </div>
