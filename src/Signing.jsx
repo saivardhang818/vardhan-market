@@ -1,95 +1,108 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "./SignupForm.css"; // Import the external CSS
+import { loginUser } from "./store";
 
-function SignupForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+function Signing() {
+  const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    // Add your submission logic here
+    dispatch(loginUser(data));
+    navigate("/");
   };
 
   return (
-    <div className="signup-container">
-      <h2 className="signup-heading">Create Your Account</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
-        {/* Username */}
-        <label>Username</label>
-        <input
-          type="text"
-          placeholder="Enter your username"
-          {...register("username", { required: "Username is required" })}
-          className={`form-input ${errors.username ? "error" : ""}`}
-        />
-        {errors.username && (
-          <p className="error-text">{errors.username.message}</p>
-        )}
+    <>
+      <style>{`
+        .signin-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: #f3f1f0;
+        }
 
-        {/* Password */}
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          {...register("password", { required: "Password is required" })}
-          className={`form-input ${errors.password ? "error" : ""}`}
-        />
-        {errors.password && (
-          <p className="error-text">{errors.password.message}</p>
-        )}
+        .signin-box {
+          background: white;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+          max-width: 400px;
+          width: 100%;
+          font-family: "Segoe UI", sans-serif;
+        }
 
-        {/* Gender */}
-        <label>Gender</label>
-        <div className="radio-group">
-          <label>
+        .signin-box h2 {
+          text-align: center;
+          color: #4f7893;
+          margin-bottom: 20px;
+        }
+
+        .signin-box input {
+          width: 100%;
+          padding: 12px;
+          margin: 10px 0;
+          border: 1px solid #a5b899;
+          border-radius: 8px;
+          font-size: 1rem;
+        }
+
+        .signin-box button {
+          width: 100%;
+          padding: 12px;
+          background: #4f7893;
+          color: #fff;
+          font-weight: bold;
+          border: none;
+          border-radius: 10px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+
+        .signin-box button:hover {
+          background: #54a6b7;
+        }
+
+        .signin-box p {
+          text-align: center;
+          margin-top: 16px;
+          font-size: 0.95rem;
+        }
+
+        .signin-box a {
+          color: #4f7893;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      `}</style>
+
+      <div className="signin-container">
+        <div className="signin-box">
+          <h2>Sign In</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              type="radio"
-              value="male"
-              {...register("gender", { required: "Gender is required" })}
-            />{" "}
-            Male
-          </label>
-          <label>
+              type="text"
+              placeholder="Username"
+              {...register("username", { required: true })}
+            />
             <input
-              type="radio"
-              value="female"
-              {...register("gender", { required: "Gender is required" })}
-            />{" "}
-            Female
-          </label>
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: true })}
+            />
+            <button type="submit">Sign In</button>
+          </form>
+          <p>
+            New User? <Link to="/signup">Sign Up</Link>
+          </p>
         </div>
-        {errors.gender && (
-          <p className="error-text">{errors.gender.message}</p>
-        )}
-
-        {/* Category */}
-        <label>Category</label>
-        <select
-          {...register("category", { required: "Category is required" })}
-          className={`form-input ${errors.category ? "error" : ""}`}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select category
-          </option>
-          <option value="veg">Veg</option>
-          <option value="nonveg">Non-Veg</option>
-        </select>
-        {errors.category && (
-          <p className="error-text">{errors.category.message}</p>
-        )}
-
-        {/* Submit */}
-        <button type="submit" className="submit-btn">
-          Sign Up
-        </button>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 
-export default SignupForm;
+export default Signing;

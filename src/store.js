@@ -102,6 +102,40 @@ const cartSlice=createSlice({
     }
 })
 export let{AddToCart,IncCart,DecCart,RemoveFromCart,ClearCart}=cartSlice.actions;
+ 
+const userSlice = createSlice({
+  name: "users",
+  initialState: {
+    users: [],
+    isAuthenticated: false,
+    currentUser: null,
+  },
+
+reducers: {
+    registerUser: (state, action) => {
+      state.users.push(action.payload);
+    },
+    loginUser: (state, inputData) => {
+      const foundUser = state.users.find(
+        (user) =>
+          user.username === inputData.payload.username &&
+          user.password === inputData.payload.password
+      );
+      if (foundUser) {
+        state.isAuthenticated = true;
+        state.currentUser = foundUser;
+      } else {
+        alert("Invalid Credentials");
+      }
+    },
+    logoutUser: (state) => {
+      state.isAuthenticated = false;
+      state.currentUser = null;
+    },
+  },
+});
+
+export const { registerUser, loginUser, logoutUser } = userSlice.actions;
 
 // Orders Slice
 const ordersSlice = createSlice({

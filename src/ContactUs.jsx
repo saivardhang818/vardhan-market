@@ -1,166 +1,169 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const form = useRef();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const dateTimeInput = document.createElement('input');
+    dateTimeInput.type = 'hidden';
+    dateTimeInput.name = 'date_time';
+    dateTimeInput.value = new Date().toLocaleString();
+    form.current.appendChild(dateTimeInput);
+
+    emailjs.sendForm(
+      'service_i3t0kvh',
+      'template_b9s5dgr',
+      form.current,
+      'gimfEfjaE6hdhlA1x'
+    )
+      .then((result) => {
+        alert('Message sent successfully!');
+        form.current.reset();
+      }, (error) => {
+        alert('Failed to send the message. Try again later.');
+        console.error(error);
+      });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your email sending functionality or API call here
-
-    // For now, let's log the form data
-    console.log('Form submitted:', formData);
+  const styles = {
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      padding: '2rem',
+      backgroundColor: '#f3f1f0',
+      fontFamily: 'Arial, sans-serif',
+      color: '#333',
+      borderRadius: '12px',
+      boxShadow: '0 0 15px rgba(0,0,0,0.1)',
+      maxWidth: '1200px',
+      margin: '2rem auto',
+    },
+    left: {
+      flex: '1',
+      paddingRight: '2rem',
+      minWidth: '300px',
+    },
+    right: {
+      flex: '1',
+      paddingLeft: '2rem',
+      minWidth: '300px',
+    },
+    heading: {
+      color: '#4f7893',
+      marginBottom: '1rem',
+    },
+    paragraph: {
+      marginBottom: '0.75rem',
+      display: 'flex',
+      alignItems: 'center',
+      fontSize: '1rem',
+    },
+    iconRed: {
+      color: '#c69055',
+      marginRight: '0.5rem',
+    },
+    iconGreen: {
+      color: '#a5b899',
+      marginRight: '0.5rem',
+    },
+    followTitle: {
+      marginTop: '2rem',
+      marginBottom: '1rem',
+      fontSize: '1.1rem',
+      fontWeight: 'bold',
+    },
+    socialIcons: {
+      display: 'flex',
+      gap: '1rem',
+      fontSize: '1.5rem',
+    },
+    socialIcon: {
+      cursor: 'pointer',
+      color: '#4f7893',
+      transition: 'color 0.3s',
+    },
+    map: {
+      marginTop: '1.5rem',
+      borderRadius: '10px',
+      overflow: 'hidden',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem',
+      backgroundColor: '#ffffff',
+      padding: '1.5rem',
+      borderRadius: '12px',
+      boxShadow: '0 0 10px rgba(0,0,0,0.05)',
+    },
+    input: {
+      padding: '0.75rem',
+      borderRadius: '8px',
+      border: '1px solid #ccc',
+      fontSize: '1rem',
+    },
+    textarea: {
+      padding: '0.75rem',
+      borderRadius: '8px',
+      border: '1px solid #ccc',
+      fontSize: '1rem',
+      resize: 'vertical',
+    },
+    button: {
+      backgroundColor: '#54a6b7',
+      color: 'white',
+      padding: '0.75rem',
+      border: 'none',
+      borderRadius: '8px',
+      fontSize: '1rem',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+    },
   };
 
   return (
-    <section style={{
-      padding: '50px 20px',
-      backgroundColor: '#f3f1f0',
-      textAlign: 'center',
-    }}>
-      <h2 style={{ fontSize: '2rem', color: '#4f7893', marginBottom: '20px' }}>
-        📞 Get in Touch with Us
-      </h2>
-      <p style={{ fontSize: '1rem', color: '#333', marginBottom: '40px' }}>
-        Have questions or need assistance? We're here to help!
-      </p>
+    <div style={styles.container}>
+      <div style={styles.left}>
+        <h2 style={styles.heading}>Get in Touch</h2>
+        <p style={styles.paragraph}><FaEnvelope style={styles.iconRed} /> <strong>Email:</strong>saivardhang818@gmail.com</p>
+        <p style={styles.paragraph}><FaPhone style={styles.iconGreen} /> <strong>Phone:</strong>9494948586</p>
+        <p style={styles.paragraph}><FaMapMarkerAlt style={styles.iconRed} /> <strong>Address:</strong> Singupuram, Srikakulam, AndhraPradesh</p>
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        flexWrap: 'wrap',
-        marginBottom: '30px',
-      }}>
-        <div style={{
-          width: '30%',
-          padding: '20px',
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          margin: '10px',
-          textAlign: 'center',
-        }}>
-          <h3 style={{ color: '#4f7893', fontSize: '1.2rem', marginBottom: '10px' }}>📧 Email Us</h3>
-          <p style={{ color: '#666', fontSize: '1rem' }}>support@mymarket.com</p>
+        <h3 style={styles.followTitle}>Follow Us</h3>
+        <div style={styles.socialIcons}>
+          <FaFacebook style={styles.socialIcon} />
+          <FaInstagram style={styles.socialIcon} />
+          <FaTwitter style={styles.socialIcon} />
         </div>
 
-        <div style={{
-          width: '30%',
-          padding: '20px',
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          margin: '10px',
-          textAlign: 'center',
-        }}>
-          <h3 style={{ color: '#4f7893', fontSize: '1.2rem', marginBottom: '10px' }}>📞 Call Us</h3>
-          <p style={{ color: '#666', fontSize: '1rem' }}>+91 9494948586</p>
-        </div>
-
-        <div style={{
-          width: '30%',
-          padding: '20px',
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          margin: '10px',
-          textAlign: 'center',
-        }}>
-          <h3 style={{ color: '#4f7893', fontSize: '1.2rem', marginBottom: '10px' }}>📍 Visit Us</h3>
-          <p style={{ color: '#666', fontSize: '1rem' }}>123 Main Street, City, Country</p>
+        <div style={styles.map}>
+          <iframe
+            title="Google Map"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3804.6239482609344!2d78.3935950751681!3d17.525455783385404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDMxJzMxLjYiTiA3OMKwMjMnNDYuMiJF!5e0!3m2!1sen!2sin!4v1747533689591!5m2!1sen!2sin"
+            width="100%"
+            height="200"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
 
-      <div style={{
-        maxWidth: '600px',
-        margin: '0 auto',
-        backgroundColor: '#fff',
-        padding: '30px',
-        borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-      }}>
-        <h3 style={{ fontSize: '1.5rem', color: '#4f7893', marginBottom: '20px' }}>
-          Send Us a Message
-        </h3>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={{
-              width: '100%',
-              padding: '12px',
-              margin: '10px 0',
-              border: '1px solid #ddd',
-              borderRadius: '5px',
-              fontSize: '1rem',
-            }}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            style={{
-              width: '100%',
-              padding: '12px',
-              margin: '10px 0',
-              border: '1px solid #ddd',
-              borderRadius: '5px',
-              fontSize: '1rem',
-            }}
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            style={{
-              width: '100%',
-              padding: '12px',
-              margin: '10px 0',
-              border: '1px solid #ddd',
-              borderRadius: '5px',
-              fontSize: '1rem',
-            }}
-          />
-          <button
-            type="submit"
-            style={{
-              padding: '12px 30px',
-              backgroundColor: '#4f7893',
-              color: 'white',
-              fontSize: '1.2rem',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              transition: 'background-color 0.3s ease',
-            }}
-            onMouseOver={(e) => e.target.style.backgroundColor = '#54a6b7'}
-            onMouseOut={(e) => e.target.style.backgroundColor = '#4f7893'}
-          >
-            Send Message
-          </button>
+      <div style={styles.right}>
+        <h2 style={styles.heading}>Send Us a Message</h2>
+        <form ref={form} onSubmit={sendEmail} style={styles.form}>
+          <input type="text" name="from_name" placeholder="Enter your name" required style={styles.input} />
+          <input type="email" name="from_email" placeholder="Enter your email" required style={styles.input} />
+          <textarea name="message" rows="5" placeholder="Your message" required style={styles.textarea}></textarea>
+          <button type="submit" style={styles.button}>Send Message</button>
         </form>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -13,6 +13,8 @@ import Orders from './Orders';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import CartComponent from './CartComponent';
+import Signup from './Signup';
+
 
 function App() {
   const cart = useSelector(state => state.cart);
@@ -36,6 +38,7 @@ function App() {
     { to: '/orders', label: 'Orders' },
     { to: '/aboutus', label: 'About Us' },
     { to: '/contactus', label: 'Contact Us' },
+    { to: '/Signup', label: 'SignUp' },
   ];
 
   return (
@@ -101,6 +104,7 @@ function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
+         <Route path="/Signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
