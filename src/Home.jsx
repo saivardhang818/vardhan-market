@@ -37,19 +37,19 @@ function Home() {
         <h2>Shop by Category</h2>
         <div className="category-cards">
           <Link to="/Veg" className="category-item">
-            <img src="public/vegimages/download1.jpeg" alt="Veg" />
+            <img src="/vegimages/download1.jpeg" alt="Veg" />
             <span>Vegetables</span>
           </Link>
           <Link to="/NonVeg" className="category-item">
-            <img src="public/nonVegimages/images1.jpeg" alt="Non-Veg" />
+            <img src="/nonVegimages/images1.jpeg" alt="Non-Veg" />
             <span>Non-Veg</span>
           </Link>
           <Link to="/Milk" className="category-item">
-            <img src="public/milk/download2.jpeg" alt="Milk" />
+            <img src="/milk/download2.jpeg" alt="Milk" />
             <span>Milk</span>
           </Link>
           <Link to="/Chocolate" className="category-item">
-            <img src="/chocolate/chocolateeeeee1.jpeg" alt="Chocolate" />
+            <img src="/chocolate/dairymilk.jpg" alt="Chocolate" />
             <span>Chocolates</span>
           </Link>
         </div>
