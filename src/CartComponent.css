@@ -41,7 +41,7 @@
 }
 
 .quantity-box button {
-  background-color: #4f7893;
+  
   color: white;
   border: none;
   padding: 0.25rem 0.5rem;
@@ -51,7 +51,7 @@
 }
 
 .item-actions .btn-remove {
-  background-color: #c69055;
+  background-color: #e11616;
   border: none;
   color: white;
   padding: 6px 10px;

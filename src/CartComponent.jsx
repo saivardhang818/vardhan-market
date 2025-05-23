@@ -61,9 +61,9 @@ function CartComponent() {
       <span className="item-name">{item.name}</span>
       <span className="item-price">₹{item.price}</span>
       <div className="quantity-box">
-        <button onClick={() => dispatch(DecCart(item))}>-</button>
+        <button style={{backgroundColor:"darkorange"}} onClick={() => dispatch(DecCart(item))}>-</button>
         <span>{item.quantity}</span>
-        <button onClick={() => dispatch(IncCart(item))}>+</button>
+        <button style={{backgroundColor:"green"}} onClick={() => dispatch(IncCart(item))}>+</button>
       </div>
       <span>₹{(item.price * item.quantity).toFixed(2)}</span>
       <div className="item-actions">

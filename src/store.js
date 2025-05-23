@@ -102,8 +102,6 @@ const cartSlice=createSlice({
     }
 })
 export let{AddToCart,IncCart,DecCart,RemoveFromCart,ClearCart}=cartSlice.actions;
-
- 
 const userSlice = createSlice({
   name: "users",
   initialState: {
